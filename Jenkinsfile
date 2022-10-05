@@ -8,7 +8,7 @@ node {
     stage ('Config CLI Artifactory') {
         sh "curl -fL https://getcli.jfrog.io | sh"
         withCredentials([usernamePassword(credentialsId: 'ARTIFACTORY_CREDENTIALS', passwordVariable: 'ARTIFACTORY_PASSWORD', usernameVariable: 'ARTIFACTORY_USER')]) {
-            sh "./jfrog config $ARTIFACTORY_ID --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD"
+            sh "./jfrog config add $ARTIFACTORY_ID --artifactory-url=$artifactory-url --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD"
         }
     }
     stage ('Maven Build & Publish' ) {
