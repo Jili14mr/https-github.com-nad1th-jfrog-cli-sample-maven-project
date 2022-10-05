@@ -1,6 +1,6 @@
 node {
     def ARTIFACTORY_ID = 'artifactory'
-    def ARTIFACTORY_URL = 'http://localhost:8081/artifactory'
+    def ARTIFACTORY_URL = 'https://jilifrog.jfrog.io/'
 
     stage ('GIT Clone') {
         checkout scm
